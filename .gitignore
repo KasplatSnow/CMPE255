@@ -1,0 +1,13 @@
+# Byte‑compiled / virtual‑env / IDE cruft
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.swp
+# Jupyter checkpoints
+.ipynb_checkpoints/
+# VSCode / PyCharm
+.vscode/
+.idea/
+# Data artefacts
+data/processed/
