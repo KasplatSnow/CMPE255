@@ -40,7 +40,7 @@ def classify_user_demo(username: str, input_csv_path: str,
     y_pred = model.predict(X)[0]
     predicted_user = label_encoder.inverse_transform([y_pred])[0]
 
-    print(f"🔍 Claimed username: {username}")
-    print(f"🧠 Predicted username: {predicted_user}")
+    print(f"Claimed username: {username}")
+    print(f"Predicted username: {predicted_user}")
 
     return predicted_user
