@@ -33,7 +33,7 @@ class _KeystrokeFeatureBuilder(BaseEstimator, TransformerMixin):
         feats = X[feature_cols]
         labels = X["subject"].values
         groups = X["subject"].values
-        print("✅ Extracted feature matrix:", feats.shape)
+        print("Extracted feature matrix:", feats.shape)
         return feats, labels, groups
 
 def build_preprocess_pipeline() -> Pipeline:
