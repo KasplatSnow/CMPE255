@@ -10,6 +10,7 @@ from pathlib import Path
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+import joblib
 
 from sklearn.metrics import accuracy_score, f1_score, roc_auc_score, confusion_matrix
 from sklearn.model_selection import StratifiedKFold
@@ -18,6 +19,7 @@ from sklearn.preprocessing import LabelEncoder, label_binarize
 from models import get_model
 from preprocessing import load_dataset
 from utils import get_logger, save_metrics, set_seed
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Keystroke‑ID training script")
@@ -72,6 +74,12 @@ def main() -> None:
 
     logger.info("📊  %s", metrics)
     save_metrics(metrics, Path(args.metrics_out))
+
+    # Save final trained model and label encoder
+    Path("results/models").mkdir(parents=True, exist_ok=True)
+    joblib.dump(clf, f"results/models/{args.model}_model.pkl")
+    joblib.dump(label_encoder, f"results/models/{args.model}_label_encoder.pkl")
+    logger.info("💾 Model and label encoder saved to results/models/")
 
     # Confusion Matrix Plot
     try:
