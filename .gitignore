@@ -1,6 +1,7 @@
 # Byte‑compiled / virtual‑env / IDE cruft
 __pycache__/
 *.py[cod]
+venv/
 .venv/
 .env
 *.swp
