@@ -6,3 +6,5 @@ umap-learn>=0.5
 matplotlib>=3.9
 seaborn>=0.13
 notebook>=7.2
+flask
+joblib

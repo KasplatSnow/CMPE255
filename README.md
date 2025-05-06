@@ -23,6 +23,8 @@ We use models like **XGBoost**, **Random Forest**, and **MLP** to classify users
 │   ├── models.py                        # Model factory
 │   ├── preprocessing.py                 # Data pipeline (clipping, scaling, filtering)
 │   └── utils.py                         # Logging, seeding, metric saving
+│   └── demo.py                         # Script for demonstrating classification on new data
+│   └── interface.py                          # Flask web interface
 └── README.md
 ```
 
@@ -43,12 +45,19 @@ pip install -r requirements.txt
 Train on the top-10 most frequent users using XGBoost:
 
 ```bash
-python src/train.py --model xgb
+python -m src.train --model xgb
 ```
 
 Other model choices: `rf`, `logreg`, `mlp`, `knn`
 
 ---
+## Web Interface:
+
+```bash
+flask --app src/interface run
+```
+
+Then, navigate to http://127.0.0.1:5000 in your web browser.
 
 ## 📊 Outputs
 
