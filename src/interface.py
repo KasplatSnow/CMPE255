@@ -1,6 +1,7 @@
 from flask import Flask, render_template_string, request
 import pandas as pd
 from io import StringIO
+from demo import classify_user_demo
 
 app = Flask(__name__)
 
