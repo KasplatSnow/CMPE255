@@ -36,7 +36,7 @@ def submit():
     #call a model for classifcation
     #Needs a proper function to perform classification
     #should return a prediucted user by the classifier
-    predicted_user = classify(username, df)
+    predicted_user = classify_user_demo(username, df)
 
     result = "Valid" if predicted_user == username else "Invalid"
 
