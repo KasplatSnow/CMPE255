@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler
 from preprocessing import ClipOutliersTransformer
 from pathlib import Path
 
-def classify_user_demo(username: str, input_csv_path: str,
+def classify_user_demo(username: str, input_df: pd.Dataframe,
                        model_path: str = "results/models/mlp_model.pkl",
                        encoder_path: str = "results/models/mlp_label_encoder.pkl") -> str:
     """
@@ -12,7 +12,7 @@ def classify_user_demo(username: str, input_csv_path: str,
 
     Args:
         username (str): The claimed username.
-        input_csv_path (str): Path to CSV file containing the keystroke sample(s).
+        input_df: CSV file containing the keystroke sample.
         model_path (str): Path to the trained model file.
         encoder_path (str): Path to the saved LabelEncoder.
     
@@ -25,10 +25,11 @@ def classify_user_demo(username: str, input_csv_path: str,
     label_encoder = joblib.load(encoder_path)
 
     # Load and preprocess the input sample
-    df = pd.read_csv(input_csv_path)
-    feature_cols = [col for col in df.columns if col.startswith(('H.', 'DD.', 'UD.'))]
-    X = df[feature_cols]
-
+    #df = pd.read_csv(input_csv_path)
+    #feature_cols = [col for col in df.columns if col.startswith(('H.', 'DD.', 'UD.'))]
+    #X = df[feature_cols]
+    X = df
+                         
     # Apply same preprocessing steps as training
     clipper = ClipOutliersTransformer()
     X = clipper.fit_transform(X)  # You can replace with a saved one if needed
